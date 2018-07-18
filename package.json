@@ -20,8 +20,8 @@
     "gulp": "^3.9.1"
   },
   "dependencies": {
+    "es6-scroll-to": "^1.1.2",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-connect": "^5.5.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-sass": "^4.0.1",
