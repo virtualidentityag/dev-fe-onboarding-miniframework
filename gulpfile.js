@@ -41,4 +41,4 @@ gulp.task('watch', function() {
   gulp.watch('./src/**/*', ['livereload']);
 });
 
-gulp.task('default', ['connect', 'connect:open', 'watch', 'sass']);
+gulp.task('default', ['connect', 'connect:open', 'watch', 'sass', 'copy']);
