@@ -4,7 +4,7 @@
   "description": "This amazing framework is almost perfect, it just needs a little bit of work to be finished.",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
