@@ -1,14 +1,73 @@
+$font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+$backgroundColor: #fff;
+$secondaryColor: #f08080;
+
 body {
-  background-color: pink;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 2000px;
+  background-color: $backgroundColor;
+  font-family: $font;
+  margin: 0;
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+img {
+  width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: #eee;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__content {
+    padding: 0 150px;
+    width: 50%;
+  }
+  
+  &__title {
+    color: #000;
+
+    .card--active & {
+      color: #f08080;
+    }
+  }
+
+  &__text {
+    font-size: 10px;
+  }
+
+  &__button {
+    width: 150px;
+    border: none;
+    background-color: #000;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 40px;
+    margin-top: 30px;
+  }
+  &__imgBox {
+    width: 50%;
+  }
+
+  &__img {
+    display: block;
+  }
+
+
+  // &__box {
+  //   height: 200px;
+  //   width: 200px;
+  //   border: 1px solid #000;
+  // }
+  // &__innerBox {
+  //   background-color: red;
+  //   height: 100px;
+  //   width: 100px;
+  // }
 }
