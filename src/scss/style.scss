@@ -22,10 +22,21 @@ img {
   width: 100%;
   display: flex;
   align-items: center;
+  flex-direction: row;
+
+  &--secondary {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
 
   &__content {
     padding: 0 150px;
     width: 50%;
+
+    .card--secondary & {
+      padding: 0 40px;
+      width: auto;
+    }
   }
   
   &__title {
@@ -34,10 +45,18 @@ img {
     .card--active & {
       color: #f08080;
     }
+
+    .card--secondary & {
+      font-size: 20px;
+    }
   }
 
   &__text {
-    font-size: 10px;
+    font-size: 14px;
+
+    .card--secondary & {
+      font-size: 12px;
+    }
   }
 
   &__button {
@@ -51,13 +70,24 @@ img {
     line-height: 40px;
     margin-top: 30px;
   }
+
   &__imgBox {
     width: 50%;
+
+    .card--secondary & {
+      width: auto;
+    }
   }
 
   &__img {
     display: block;
+
+    .card--secondary & {
+      width: 400px;
+    }
   }
+}
+  
 
 
   // &__box {
@@ -70,4 +100,3 @@ img {
   //   height: 100px;
   //   width: 100px;
   // }
-}
