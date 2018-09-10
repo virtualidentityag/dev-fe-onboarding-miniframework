@@ -1,14 +1,97 @@
+$font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+$white: #fff;
+$black: #000;
+$secondaryColor: #f08080;
+$secondaryBgColor: #eee;
+
 body {
-  background-color: pink;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 2000px;
+  background-color: $white;
+  font-family: $font;
+  margin: 0;
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+img {
+  width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: $secondaryBgColor;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px 0;
+
+  &--secondary {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  &__content {
+    padding: 0 150px;
+    width: 50%;
+
+    .card--secondary & {
+      padding: 0;
+      width: auto;
+    }
+  }
+  
+  &__title {
+    color: $black;
+
+    .card--coloured & {
+      color: $secondaryColor;
+    }
+
+    .card--secondary & {
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+
+    .card--secondary & {
+      font-size: 12px;
+    }
+  }
+
+  &__button {
+    width: 150px;
+    border: none;
+    background-color: $black;
+    display: inline-block;
+    text-align: center;
+    color: $white;
+    text-decoration: none;
+    line-height: 40px;
+    margin-top: 30px;
+
+    .card--coloured & {
+      background-color: $secondaryColor;
+    }
+  }
+
+  &__imgBox {
+    width: 50%;
+
+    .card--secondary & {
+      width: auto;
+      padding: 20px;
+    }
+  }
+
+  &__img {
+    display: block;
+
+    .card--secondary & {
+      width: 400px;
+    }
+  }
 }
