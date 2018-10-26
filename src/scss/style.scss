@@ -1,14 +1,122 @@
+// Variables
+$orange: #F08080;
+$gray: #ECEDE9;
+$black: #000000;
+$white: #ffffff;
+
+
+
+// General styling
 body {
-  background-color: pink;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 2000px;
+  font-family: 'Noto Serif JP', sans-serif;
+  color: $black;
+  margin: 0;
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  height: auto;
+  display: block;
+  align-self: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  padding: 70px 40px;
+}
+
+
+
+
+// Section styling
+h2 {
+  font-weight: 900;
+  font-size: 2em;
+  margin: 25px 18rem;
+  padding-left: 5px;
+  border-left: 5px solid $orange;
+}
+
+.button {
+  background: $black;
+  color: $white;
+  border: none;
+  padding: 10px 15px;
+  font-family: 'Noto Serif JP', sans-serif;
+  cursor: pointer;
+  width: 7rem;
+}
+
+.ctaSection__textBox {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.ctaSection {
+  background: $gray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  padding: 0 0 0 18rem;
+
+  h3 {
+    font-weight: 900;
+  }
+
+  p {
+    padding: 10px 0 30px 0;
+    font-size: 0.85em;
+  }
+
+  &__largeConversion {
+    h3 {
+      font-size: 1.7em;
+    }
+
+    img {
+      width: 50%;
+    }
+
+    .ctaSection__textBox {
+      width: 50%;
+      padding: 0 5rem 0 0;
+    }
+  }
+
+  &__smallConversion {
+    padding: 40px 18rem;
+    flex-flow: row-reverse;
+    justify-content: flex-end;
+
+    img {
+      width: 30%;
+    }
+
+    .ctaSection__textBox {
+      padding: 20px;
+    }
+  }
+}
+
+.ctaSection__largeConversion--redHeadline {
+  h3 {
+    color: $orange;
+  }
+}
+
+
+.button--orange {
+  background: $orange;
 }

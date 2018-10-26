@@ -1,8 +1,10 @@
-const gulp = require('gulp');
+// Include plugins
+const gulp = require('gulp'); // Required
 const sass = require('gulp-sass');
 const connect = require('gulp-connect');
 var rename = require('gulp-rename');
 
+// Define tasks
 gulp.task('sass', function() {
   gulp
     .src(['./src/scss/*.scss'])
@@ -23,6 +25,12 @@ gulp.task('js', function(){
 gulp.task('html', function () {
   gulp.src('./src/*.html').pipe(gulp.dest('./srv/'));
 })
+
+// made an image dirrectory
+gulp.task('image', function(){
+  gulp.src('./src/img/*jpg').pipe(gulp.dest('./srv/img/'));
+});
+
 
 gulp.task('connect:open', function() {
   const opn = require('opn');

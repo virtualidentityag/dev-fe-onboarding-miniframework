@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>title</title>
-  <link rel="stylesheet" href="css/style.ss" type="text/css">
-  </head>
-  <body>
-      <div class="error" style="color:pink">
-          Looks like the styleguide is not being implemented correctly..
-      </div>
-      <div class="content">
-          <h1 class="title">
-              Hmm...
-          </h1>
-          <p class="text">
-              Something is wrong... <br> 
-              Looks like the Javascript code is not being executed. <br>
-              Fix me please.
-          </p>
-      </div>
-      <div class="success" style="color:white; position:absolute; top:580px">
-            Woohoo, CSS is working!
+    <title>Call To Action Section</title>
+    <link rel="stylesheet" href="ssc/style.css" type="text/css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700,900" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Call To Actoon Sections</h1>
+
+    <h2>CtA - Main conversion</h2>
+    <section class="ctaSection ctaSection__largeConversion">
+        <div class="ctaSection__textBox">
+            <h3>A wonderful serenity has taken posession</h3>
+            <p>A wonderful serenity has taken posession of my entire soul, like these sweet mo</p>
+            <button class="button">Link button</button>
         </div>
-      <script type="module" src="js/mayn.js"></script>
-  </body>
-</html> 
+        <img src="img/mountain.jpg" alt="a couple looking over a mountain cliff facing the ocean horizon">
+    </section>
+
+    <h2>CtA - Main conversion - Red Headline</h2>
+    <section class="ctaSection ctaSection__largeConversion ctaSection__largeConversion--redHeadline">
+        <div class="ctaSection__textBox">
+            <h3>A wonderful serenity has taken posession</h3>
+            <p>A wonderful serenity has taken posession of my entire soul, like these sweet mo</p>
+            <button class="button">Link button</button>
+        </div>
+        <img src="img/mountain.jpg" alt="a couple looking over a mountain cliff facing the ocean horizon">
+    </section>
+
+    <h2>CtA - Secondary conversion</h2>
+    <section class="ctaSection ctaSection__smallConversion">
+        <div class="ctaSection__textBox">
+            <h3>A wonderful serenity has taken posession</h3>
+            <p>A wonderful serenity has taken posession of my entire soul, like these sweet mo</p>
+            <button class="button button--orange">Link button</button>
+        </div>
+        <img src="img/mountain.jpg" alt="a couple looking over a mountain cliff facing the ocean horizon">
+    </section>
+
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
