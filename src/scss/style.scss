@@ -1,10 +1,62 @@
-// Variables
+// Colors
 $orange: #F08080;
 $gray: #ECEDE9;
 $black: #000000;
 $white: #ffffff;
+$blue: #303C54;
+
+// Animation
+// @keyframes slideOpen {
+//   from {
+//     opacity: 0;
+//     padding: 0 18rem 0 18rem;
+//   }
+
+//   to {
+//     opacity: 1;
+//     padding: 20px 18rem 15rem 18rem;
+//   }
+// }
+
+// @keyframes slideBack {
+//   from {
+//     opacity: 1;
+//     padding: 20px 18rem 15rem 18rem;
+//   }
+
+//   to {
+//     opacity: 0;
+//     padding: 0 18rem 0 18rem;
+//   }
+// }
 
 
+// @keyframes appearFromBottom {
+//   from {
+//     opacity: 0;
+//     transform: translateY(10px);
+//     color: $white;
+//     // margin-top: 30px;
+//   }
+
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes disappearToBottom {
+//   from {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+
+//   to {
+//     opacity: 0;
+//     transform: translateY(10px);
+//     color: $white;
+//   }
+// }
 
 // General styling
 body {
@@ -56,6 +108,11 @@ h2 {
   font-family: 'Noto Serif JP', sans-serif;
   cursor: pointer;
   width: 7rem;
+  transition: 0.15s linear;
+
+  &:hover {
+    background: $blue;
+  }
 }
 
 .ctaSection__textBox {
@@ -65,11 +122,11 @@ h2 {
 }
 
 .ctaSection {
-  background: $gray;
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow: row;
-  padding: 0 0 0 18rem;
+  // background: $gray;
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-flow: row;
+  // padding: 0 0 0 18rem;
 
   h3 {
     font-weight: 900;
@@ -96,7 +153,9 @@ h2 {
   }
 
   &__smallConversion {
+    background: $gray;
     padding: 40px 18rem;
+    display: flex;
     flex-flow: row-reverse;
     justify-content: flex-end;
 
@@ -108,8 +167,16 @@ h2 {
       padding: 20px;
     }
   }
-}
 
+  
+}
+.ctaSection__largeConversion{
+  background: $gray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  padding: 0 0 0 18rem;
+}
 .ctaSection__largeConversion--redHeadline {
   h3 {
     color: $orange;
@@ -122,3 +189,66 @@ h2 {
 }
 
 // contact us pop animated
+.contactUs {
+  background: $blue;
+  color: $white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  margin-top: 14px;
+  position: relative;
+  height: 0px;
+  transition: height 0.5s 0.1s;
+
+  overflow: hidden;
+
+  
+
+  span {
+    opacity: 0;
+    position: absolute;
+    transform: translateY(10px);
+    transition: opacity 0.5s 0.4s, transform 0.5s 0.4s linear;
+    padding: 20px 18rem;
+  }
+
+  &__innerWrapper {
+  }
+
+  &--opened {
+    height: 15rem;
+    overflow: visible;
+    span {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+   
+  }
+
+
+  
+
+  &::before {
+    content: '';
+    border-bottom: 00px solid $blue;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    left: 18rem;
+    opacity: 0;
+    transition: top 0.05s 0.3s, opacity 0.5s 0.2s, border-bottom 0.2s;
+  }
+
+  &--opened::before {
+    opacity: 1;
+    top: -20px;
+    border-bottom: 10px solid $blue;
+  }
+  &--smallConversion::before {
+
+    left: calc((100% + 32rem) * 0.3 + 24px);
+
+  }
+}
