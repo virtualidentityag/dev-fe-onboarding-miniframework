@@ -5,59 +5,6 @@ $black: #000000;
 $white: #ffffff;
 $blue: #303C54;
 
-// Animation
-// @keyframes slideOpen {
-//   from {
-//     opacity: 0;
-//     padding: 0 18rem 0 18rem;
-//   }
-
-//   to {
-//     opacity: 1;
-//     padding: 20px 18rem 15rem 18rem;
-//   }
-// }
-
-// @keyframes slideBack {
-//   from {
-//     opacity: 1;
-//     padding: 20px 18rem 15rem 18rem;
-//   }
-
-//   to {
-//     opacity: 0;
-//     padding: 0 18rem 0 18rem;
-//   }
-// }
-
-
-// @keyframes appearFromBottom {
-//   from {
-//     opacity: 0;
-//     transform: translateY(10px);
-//     color: $white;
-//     // margin-top: 30px;
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
-// @keyframes disappearToBottom {
-//   from {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-
-//   to {
-//     opacity: 0;
-//     transform: translateY(10px);
-//     color: $white;
-//   }
-// }
-
 // General styling
 body {
   font-family: 'Noto Serif JP', sans-serif;
@@ -122,11 +69,6 @@ h2 {
 }
 
 .ctaSection {
-  // background: $gray;
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-flow: row;
-  // padding: 0 0 0 18rem;
 
   h3 {
     font-weight: 900;
@@ -199,10 +141,7 @@ h2 {
   position: relative;
   height: 0px;
   transition: height 0.5s 0.1s;
-
   overflow: hidden;
-
-  
 
   span {
     opacity: 0;
@@ -224,9 +163,6 @@ h2 {
     }
    
   }
-
-
-  
 
   &::before {
     content: '';
