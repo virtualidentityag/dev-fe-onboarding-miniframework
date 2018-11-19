@@ -5,11 +5,32 @@ $black: #000000;
 $white: #ffffff;
 $blue: #303C54;
 
+//Mobile font size
+$hOneFontSizeMoblie: 2em;
+$hTwoFontSizeMoblie: 1.3em;
+$hThreeFontSizeMoblie: 1.7em;
+$paragraphFontSizeMoblie: 0.85em;
+
+//Desctop font size 
+$hOneFontSizeDesctop: 3em;
+$hTwoFontSizeDesctop: 2em;
+$hThreeFontSizeDesctop: 1.7em;
+$paragraphFontSizeDesctop: 0.85em;
+
+//General font Weight
+$thikFontWeight: 900;
+
+// Media brake points
+$toTablet: 768px;
+$toDesktop: 1043px;
+
+
 // General styling
 body {
   font-family: 'Noto Serif JP', sans-serif;
   color: $black;
   margin: 0;
+  max-width: 100%;
 }
 
 h1,
@@ -31,20 +52,27 @@ img {
 
 h1 {
   text-align: center;
-  font-size: 3em;
-  padding: 70px 40px;
+  font-size: $hOneFontSizeMoblie;
+  padding: 70px 20px;
+  @media screen and (min-width: $toDesktop) {
+    padding: 70px 40px;
+    font-size: $hOneFontSizeDesctop;
+  }
+  
 }
-
-
-
 
 // Section styling
 h2 {
-  font-weight: 900;
-  font-size: 2em;
-  margin: 25px 18rem;
-  padding-left: 5px;
+  font-weight: $thikFontWeight;
+  font-size: $hTwoFontSizeMoblie;
   border-left: 5px solid $orange;
+  padding-left: 5px;
+  margin: 25px auto 15px 25px;
+
+  @media screen and (min-width: $toDesktop) {
+    margin: 25px 18rem;
+    font-size: $hTwoFontSizeDesctop;
+  }
 }
 
 .button {
@@ -62,73 +90,93 @@ h2 {
   }
 }
 
-.ctaSection__textBox {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-}
-
 .ctaSection {
-
+  background: $gray;
+  display: flex;
+  flex-wrap: wrap;
+  // max-width: 100%;
+  
+  @media screen and (min-width: $toDesktop) {
+    flex-flow: row;
+    padding: 0 0 0 18rem;
+  }
+  
   h3 {
-    font-weight: 900;
+    font-weight: $thikFontWeight;
+
+    @media screen and (min-width: $toDesktop) {
+    font-size: $hThreeFontSizeDesctop;
+    }
   }
 
   p {
     padding: 10px 0 30px 0;
-    font-size: 0.85em;
+    @media screen and (min-width: $toDesktop) {
+      font-size: $paragraphFontSizeDesctop;
+    }
   }
 
-  &__largeConversion {
-    h3 {
-      font-size: 1.7em;
+  img {
+    max-width: 100%;
+    @media screen and (min-width: $toTablet) {
+      max-width: calc(100% - 50px);
+      padding: 0 25px 25px 25px;
     }
-
-    img {
+    @media screen and (min-width: $toDesktop) {
       width: 50%;
-    }
+      padding: 0;
 
-    .ctaSection__textBox {
+    }
+  }
+
+  &__textBox {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 25px;
+    @media screen and (min-width: $toDesktop) {
       width: 50%;
       padding: 0 5rem 0 0;
     }
   }
 
-  &__smallConversion {
-    background: $gray;
-    padding: 40px 18rem;
-    display: flex;
-    flex-flow: row-reverse;
-    justify-content: flex-end;
+  &--redHeadline {
+    h3 {
+      color: $orange;
+    }
+  }
 
-    img {
-      width: 30%;
+  &--smallConversion {
+    @media screen and (min-width: $toDesktop) {
+      padding: 40px 0 40px 18rem;
+      flex-flow: row-reverse;
+      justify-content: flex-end;
+    }
+    .ctaSection__smallImage {
+      @media screen and (min-width: $toDesktop) {
+        width: 30%;
+      }
     }
 
     .ctaSection__textBox {
-      padding: 20px;
+      @media screen and (min-width: $toDesktop) {
+        padding: 20px;
+      }
     }
   }
 
-  
-}
-.ctaSection__largeConversion{
-  background: $gray;
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow: row;
-  padding: 0 0 0 18rem;
-}
-.ctaSection__largeConversion--redHeadline {
-  h3 {
-    color: $orange;
+  &__button {
+    background: $black;
+    color: $white;
+    border: none;
+    font-family: 'Noto Serif JP', sans-serif;
+    cursor: pointer;
+    padding: 10px 15px;
+    width: 7rem;
+    @media screen and (min-width: $toDesktop) {
+      padding: 10px 15px;
+    }
   }
-}
-
-
-.button--orange {
-  background: $orange;
-}
 
 // contact us pop animated
 .contactUs {
@@ -155,6 +203,8 @@ h2 {
   &--opened {
     height: 15rem;
     overflow: visible;
+    background: red;
+    padding: 20px;
     span {
       opacity: 1;
       transform: translateY(0px);
@@ -184,5 +234,10 @@ h2 {
 
     left: calc((100% + 32rem) * 0.3 + 24px);
 
+    }
+  }
+
+  &__button--orange {
+    background: $orange;
   }
 }
