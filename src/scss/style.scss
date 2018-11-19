@@ -1,10 +1,27 @@
 // Variables
 $orange: #F08080;
-// test
 $gray: #ECEDE9;
 $black: #000000;
 $white: #ffffff;
 
+//Mobile font size
+$hOneFontSizeMoblie: 2em;
+$hTwoFontSizeMoblie: 1.3em;
+$hThreeFontSizeMoblie: 1.7em;
+$paragraphFontSizeMoblie: 0.85em;
+
+//Desctop font size 
+$hOneFontSizeDesctop: 3em;
+$hTwoFontSizeDesctop: 2em;
+$hThreeFontSizeDesctop: 1.7em;
+$paragraphFontSizeDesctop: 0.85em;
+
+//General font Weight
+$thikFontWeight: 900;
+
+// Media brake points
+$toTablet: 768px;
+$toDesctop: 1043px;
 
 
 // General styling
@@ -12,6 +29,7 @@ body {
   font-family: 'Noto Serif JP', sans-serif;
   color: $black;
   margin: 0;
+  max-width: 100%;
 }
 
 h1,
@@ -33,91 +51,122 @@ img {
 
 h1 {
   text-align: center;
-  font-size: 3em;
-  padding: 70px 40px;
+  font-size: $hOneFontSizeMoblie;
+  padding: 70px 20px;
+  @media screen and (min-width: $toDesctop) {
+    padding: 70px 40px;
+    font-size: $hOneFontSizeDesctop;
+  }
+  
 }
-
-
-
 
 // Section styling
 h2 {
-  font-weight: 900;
-  font-size: 2em;
-  margin: 25px 18rem;
-  padding-left: 5px;
+  font-weight: $thikFontWeight;
+  font-size: $hTwoFontSizeMoblie;
   border-left: 5px solid $orange;
-}
+  padding-left: 5px;
+  margin: 25px auto 15px 25px;
 
-.button {
-  background: $black;
-  color: $white;
-  border: none;
-  padding: 10px 15px;
-  font-family: 'Noto Serif JP', sans-serif;
-  cursor: pointer;
-  width: 7rem;
-}
-
-.ctaSection__textBox {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
+  @media screen and (min-width: $toDesctop) {
+    margin: 25px 18rem;
+    font-size: $hTwoFontSizeDesctop;
+  }
 }
 
 .ctaSection {
   background: $gray;
   display: flex;
   flex-wrap: wrap;
-  flex-flow: row;
-  padding: 0 0 0 18rem;
+  // max-width: 100%;
+  
+  @media screen and (min-width: $toDesctop) {
+    flex-flow: row;
+    padding: 0 0 0 18rem;
 
+  }
   h3 {
-    font-weight: 900;
+    font-weight: $thikFontWeight;
+
+    @media screen and (min-width: $toDesctop) {
+    font-size: $hThreeFontSizeDesctop;
+    }
   }
 
   p {
     padding: 10px 0 30px 0;
-    font-size: 0.85em;
+    @media screen and (min-width: $toDesctop) {
+      font-size: $paragraphFontSizeDesctop;
+    }
   }
 
-  &__largeConversion {
-    h3 {
-      font-size: 1.7em;
+  img {
+    max-width: 100%;
+    @media screen and (min-width: $toTablet) {
+      max-width: calc(100% - 50px);
+      padding: 0 25px 25px 25px;
     }
-
-    img {
+    @media screen and (min-width: $toDesctop) {
       width: 50%;
-    }
+      padding: 0;
 
-    .ctaSection__textBox {
+    }
+  }
+
+  &__textBox {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 25px;
+    @media screen and (min-width: $toDesctop) {
       width: 50%;
       padding: 0 5rem 0 0;
     }
   }
 
-  &__smallConversion {
-    padding: 40px 18rem;
-    flex-flow: row-reverse;
-    justify-content: flex-end;
+  &--redHeadline {
+    h3 {
+      color: $orange;
+    }
+  }
 
-    img {
-      width: 30%;
+  &--smallConversion {
+    @media screen and (min-width: $toDesctop) {
+      padding: 40px 18rem;
+      flex-flow: row-reverse;
+      justify-content: flex-end;
+
+    }
+    .ctaSection__smallImage {
+      @media screen and (min-width: $toDesctop) {
+        width: 30%;
+      }
     }
 
     .ctaSection__textBox {
-      padding: 20px;
+      @media screen and (min-width: $toDesctop) {
+        padding: 20px;
+      }
     }
   }
-}
 
-.ctaSection__largeConversion--redHeadline {
-  h3 {
-    color: $orange;
+  &__button {
+    background: $black;
+    color: $white;
+    border: none;
+    font-family: 'Noto Serif JP', sans-serif;
+    cursor: pointer;
+
+    padding: 10px 15px;
+    width: 7rem;
+    @media screen and (min-width: $toDesctop) {
+      padding: 10px 15px;
+      // width: 7rem;
+
+    }
   }
-}
 
-
-.button--orange {
-  background: $orange;
+  &__button--orange {
+    background: $orange;
+  }
 }
