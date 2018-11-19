@@ -132,7 +132,7 @@ h2 {
 
   &--smallConversion {
     @media screen and (min-width: $toDesctop) {
-      padding: 40px 18rem;
+      padding: 40px 0 40px 18rem;
       flex-flow: row-reverse;
       justify-content: flex-end;
 
