@@ -1,3 +1,4 @@
+//NAMESPACING, and not loading the DOM on var allContactUs
 
 var buttons = document.getElementsByClassName('ctaSection__button');
 
