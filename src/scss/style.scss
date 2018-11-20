@@ -23,6 +23,7 @@ $thikFontWeight: 900;
 // Media brake points
 $toTablet: 768px;
 $toDesktop: 1043px;
+$toBigDesktop: 1440px;
 
 
 // General styling
@@ -54,11 +55,12 @@ h1 {
   text-align: center;
   font-size: $hOneFontSizeMoblie;
   padding: 70px 20px;
+
   @media screen and (min-width: $toDesktop) {
     padding: 70px 40px;
     font-size: $hOneFontSizeDesctop;
   }
-  
+
 }
 
 // Section styling
@@ -69,9 +71,17 @@ h2 {
   padding-left: 5px;
   margin: 25px auto 15px 25px;
 
+
   @media screen and (min-width: $toDesktop) {
-    margin: 25px 18rem;
+    margin: 25px 5rem;
+
     font-size: $hTwoFontSizeDesctop;
+  }
+
+  // change the media screen bellow
+  @media screen and (min-width: $toBigDesktop) {
+    margin: 25px 18rem;
+
   }
 }
 
@@ -91,26 +101,40 @@ h2 {
 }
 
 .ctaSection {
-  background: $gray;
-  display: flex;
-  flex-wrap: wrap;
-  // max-width: 100%;
-  
-  @media screen and (min-width: $toDesktop) {
-    flex-flow: row;
-    padding: 0 0 0 18rem;
+  @media screen and (min-width: $toTablet) {
+    display: flex;
+    flex-flow: column;
   }
-  
+
+  // flex-flow: column;
+  @media screen and (min-width: $toTablet) {}
+
+  .ctaSection__textAndImageWrapper {
+    background: $gray;
+    display: flex;
+    flex-flow: column;
+    // order: 1;
+    // background: green;
+
+    @media screen and (min-width: $toDesktop) {
+      // padding: 0 0 0 18rem;
+      flex-flow: row;
+
+    }
+
+  }
+
   h3 {
     font-weight: $thikFontWeight;
 
     @media screen and (min-width: $toDesktop) {
-    font-size: $hThreeFontSizeDesctop;
+      font-size: $hThreeFontSizeDesctop;
     }
   }
 
   p {
     padding: 10px 0 30px 0;
+
     @media screen and (min-width: $toDesktop) {
       font-size: $paragraphFontSizeDesctop;
     }
@@ -118,10 +142,12 @@ h2 {
 
   img {
     max-width: 100%;
+
     @media screen and (min-width: $toTablet) {
       max-width: calc(100% - 50px);
       padding: 0 25px 25px 25px;
     }
+
     @media screen and (min-width: $toDesktop) {
       width: 50%;
       padding: 0;
@@ -134,10 +160,18 @@ h2 {
     flex-flow: column;
     justify-content: center;
     padding: 25px;
+
     @media screen and (min-width: $toDesktop) {
+
       width: 50%;
-      padding: 0 5rem 0 0;
+      padding: 0 5rem;
     }
+
+    @media screen and (min-width: $toBigDesktop) {
+      padding: 0 5rem 0 18rem;
+
+    }
+
   }
 
   &--redHeadline {
@@ -147,11 +181,25 @@ h2 {
   }
 
   &--smallConversion {
+
     @media screen and (min-width: $toDesktop) {
-      padding: 40px 0 40px 18rem;
-      flex-flow: row-reverse;
-      justify-content: flex-end;
+      .ctaSection__textAndImageWrapper {
+        padding: 40px 0 40px 5rem;
+        
+        
+        @media screen and (min-width: $toDesktop) {
+          display: flex;
+          flex-flow: row-reverse;
+          justify-content: flex-end;
+          
+        }
+          @media screen and (min-width: $toBigDesktop) {
+          padding: 40px 0 40px 18rem;
+
+        }
+      }
     }
+
     .ctaSection__smallImage {
       @media screen and (min-width: $toDesktop) {
         width: 30%;
@@ -161,6 +209,7 @@ h2 {
     .ctaSection__textBox {
       @media screen and (min-width: $toDesktop) {
         padding: 20px;
+        // padding: 20px;
       }
     }
   }
@@ -173,71 +222,105 @@ h2 {
     cursor: pointer;
     padding: 10px 15px;
     width: 7rem;
+
     @media screen and (min-width: $toDesktop) {
       padding: 10px 15px;
     }
   }
 
-// contact us pop animated
-.contactUs {
-  background: $blue;
-  color: $white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 1.4em;
-  margin-top: 14px;
-  position: relative;
-  height: 0px;
-  transition: height 0.5s 0.1s;
-  overflow: hidden;
+  // contact us pop animated
+  .contactUs {
+    background: $blue;
+    color: $white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.4em;
+    margin-top: 14px;
+    position: relative;
+    height: 0px;
+    transition: height 0.5s 0.1s;
+    overflow: hidden;
 
-  span {
-    opacity: 0;
-    position: absolute;
-    transform: translateY(10px);
-    transition: opacity 0.5s 0.4s, transform 0.5s 0.4s linear;
-    padding: 20px 18rem;
-  }
+    &__innerWrapper {
+      background: $blue;
+    }
 
-
-  &--opened {
-    height: 15rem;
-    overflow: visible;
-    background: red;
-    padding: 20px;
     span {
+      opacity: 0;
+      position: absolute;
+      transform: translateY(10px);
+      transition: opacity 0.5s 0.4s, transform 0.5s 0.4s linear;
+      padding: 25px;
+
+      @media screen and (min-width: $toDesktop) {
+        padding: 20px 5rem;
+      }
+      @media screen and (min-width: $toBigDesktop) {
+        padding: 20px 18rem;
+      }
+    }
+
+
+    &--opened {
+      height: 15rem;
+      overflow: visible;
+      span {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+    }
+
+    &::before {
+      content: '';
+      border-bottom: 0px solid $blue;
+      border-top: 10px solid transparent;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      position: absolute;
+      left: 4rem;
+      top: -10px;
+      opacity: 0;
+      transition: top 0.05s 0.3s,
+      opacity 0.5s 0.2s,
+      border-bottom 0.2s;
+
+      @media screen and (min-width: $toTablet) {
+        left: 5rem;
+      }
+
+      @media screen and (min-width: $toDesktop) {
+        left: 7rem;
+      }
+
+      @media screen and (min-width: $toBigDesktop) {
+        left: 20rem;
+
+      }
+
+
+    }
+
+    &--opened::before {
       opacity: 1;
-      transform: translateY(0px);
+      top: -20px;
+      border-bottom: 10px solid $blue;
     }
-   
-  }
 
-  &::before {
-    content: '';
-    border-bottom: 00px solid $blue;
-    border-top: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    position: absolute;
-    top: -10px;
-    left: 18rem;
-    opacity: 0;
-    transition: top 0.05s 0.3s, opacity 0.5s 0.2s, border-bottom 0.2s;
-  }
-
-  &--opened::before {
-    opacity: 1;
-    top: -20px;
-    border-bottom: 10px solid $blue;
-  }
-  &--smallConversion::before {
-
-    left: calc((100% + 32rem) * 0.3 + 24px);
-
+    &--smallConversion::before {
+      
+      @media screen and (min-width: $toDesktop) {
+        left: 30rem;
+      }
+      @media screen and (min-width: $toBigDesktop) {
+        left: 44rem;
+      }
     }
+
   }
 
   &__button--orange {
     background: $orange;
   }
+
 }
