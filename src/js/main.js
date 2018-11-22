@@ -1,32 +1,36 @@
-//NAMESPACING, and not loading the DOM on var allContactUs
+var toggleShutterBox = {
 
-var buttons = document.getElementsByClassName('ctaSection__button');
+    getButtonsArray: document.querySelectorAll('.ctaSection__button'),
+    allContactUsElementsArray: document.querySelectorAll('.ctaSection__shutterBox'),
 
+    init: function () {
+        this.bindEventListeners();
+    },
 
-for (var i = 0; i < buttons.length; i++) {
-    const element = buttons[i];
-    
-    element.addEventListener('click', openInfobox)
+    bindEventListeners: function() {
+        var self = this;
+        self.getButtonsArray.forEach(function (elem) {
+            elem.addEventListener('click', function(event) {
+                self.openInfobox(event);
+            });
+        });
+    },
+
+    openInfobox: function(event) {
+        var self = this;
+        var btn = event.target;
+        var elementBlockSelector = 'ctaSection__shutterBox';
+        var openModifier = '--opened';
+        var ctaSectionSelector = '.ctaSection';
+
+        self.allContactUsElementsArray.forEach (function (elem) {
+            if (btn.closest(ctaSectionSelector).querySelector('.ctaSection__shutterBox') !== elem) {  
+                elem.classList.remove(elementBlockSelector + openModifier);
+            }
+        });
+        
+        btn.closest(ctaSectionSelector).querySelector('.ctaSection__shutterBox').classList.toggle(elementBlockSelector + openModifier);
+    }
 };
 
-function openInfobox(event) {
-    var btn = event.target;
-    var elementBlockSelector = 'contactUs';
-    var open = '--opened';
-    var allContactUs = document.querySelectorAll('.contactUs');
-    var ctaSection = '.ctaSection';
-    
-    for (let i = 0; i < allContactUs.length; i++) {
-        var element = allContactUs[i];
-        
-        console.log(element);
-        
-        
-        if (btn.closest(ctaSection).getElementsByClassName('contactUs')[0] !== element) {
-            element.classList.remove(elementBlockSelector + open);    
-        };
-        
-    };
-    btn.closest(ctaSection).getElementsByClassName('contactUs')[0].classList.toggle(elementBlockSelector + open);
-
-};
+toggleShutterBox.init();

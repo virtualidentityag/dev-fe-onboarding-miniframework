@@ -226,10 +226,13 @@ h2 {
     @media screen and (min-width: $toDesktop) {
       padding: 10px 15px;
     }
+    &--orange {
+      background: $orange;
+    }
   }
 
   // contact us pop animated
-  .contactUs {
+  .ctaSection__shutterBox {
     background: $blue;
     color: $white;
     font-family: Arial, Helvetica, sans-serif;
@@ -310,17 +313,13 @@ h2 {
     &--smallConversion::before {
       
       @media screen and (min-width: $toDesktop) {
-        left: 30rem;
+        left: calc(30% + 8rem);
       }
       @media screen and (min-width: $toBigDesktop) {
-        left: 44rem;
+        left: calc(30% + 17rem);;
       }
     }
 
-  }
-
-  &__button--orange {
-    background: $orange;
   }
 
 }
