@@ -12,7 +12,7 @@ gulp.task('sass', function() {
         outputStyle: 'expanded'
       })
     )
-    .pipe(gulp.dest('./srv/ssc'));
+    .pipe(gulp.dest('./srv/css'));
 });
 
 gulp.task('js', function(){
