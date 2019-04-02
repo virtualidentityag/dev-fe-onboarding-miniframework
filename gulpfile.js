@@ -15,6 +15,10 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./srv/css'));
 });
 
+gulp.task('img', function(){
+  gulp.src(['./src/img/*']).pipe(gulp.dest('./srv/img/'));
+})
+
 gulp.task('js', function(){
   gulp.src(['./src/js/*.js']).pipe(gulp.dest('./srv/js/'));
   gulp.src('./node_modules/es6-scroll-to/lib/index.js').pipe(rename('es6-scroll-to.js')).pipe(gulp.dest('./srv/js/'));
@@ -44,8 +48,9 @@ gulp.task('livereload', function() {
 gulp.task('watch', function() {
   gulp.watch('./src/*.html', ['html']);
   gulp.watch('./src/js/*.js', ['js']);
+  gulp.watch('./src/img/*', ['img']);
   gulp.watch('./src/scss/*.scss', ['sass']);
   gulp.watch('./src/**/*', ['livereload']);
 });
 
-gulp.task('default', ['connect', 'connect:open', 'watch', 'sass', 'js', 'html']);
+gulp.task('default', ['connect', 'connect:open', 'watch', 'sass', 'js', 'html', 'img']);

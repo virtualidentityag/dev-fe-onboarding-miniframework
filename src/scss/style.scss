@@ -1,14 +1,62 @@
-body {
-  background-color: pink;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 2000px;
-}
+$font-stack: "Georgia";
+$primary-color: white;
+$secondary-color: lightgrey;
+$primary-fontcolor: black;
+$secondary-fontcolor: darkred;
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+body {
+  color: $primary-fontcolor;
+  background-color: $primary-color;
+  font-family: $font-stack;
+  mark {
+    color: $secondary-fontcolor;
+    background-color: transparent;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.block__leftright {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: $secondary-color;
+  &--secondcon {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &-right--secondcon {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    padding: 30% 0 30% 5%;
+  }
+  &-left--secondcon {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    padding: 10% 0 10% 30%;
+  }
+  .block__leftright-left {
+    margin: 30% 20%;
+  }
+}
+.block__headline2 {
+  &--black {
+    color: $primary-fontcolor;
+  }
+  &--red {
+    color: $secondary-fontcolor;
+  }
+}
+.block__headline1 {
+  margin: 0 0 0 10%;
+}
+.button {
+  padding: 10px;
+  background-color: black;
+  -webkit-appearance: none;
+  border: none;
+  color: white;
+  &--clicked {
+    padding: 10px;
+    background-color: $secondary-fontcolor;
+  }
 }

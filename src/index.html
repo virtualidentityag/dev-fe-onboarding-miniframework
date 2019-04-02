@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>title</title>
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  </head>
-  <body>
-      <div class="error" style="color:pink">
-          Looks like the styleguide is not being implemented correctly..
-      </div>
-      <div class="content">
-          <h1 class="title">
-              Hmm...
-          </h1>
-          <p class="text">
-              Something is wrong... <br> 
-              Looks like the Javascript code is not being executed. <br>
-              Fix me please.
-          </p>
-      </div>
-      <div class="success" style="color:white; position:absolute; top:580px">
-            Woohoo, CSS is working!
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="block">
+        <div class="block__headline1">
+            <h1 class="block__headline1--main-con"><mark>|</mark> CtA - Main conversion</h1>
         </div>
-      <script type="module" src="js/main.js"></script>
-  </body>
-</html> 
+        <div class="block__leftright">
+            <div class="block__leftright-left">
+                <h2 class="block__headline2--black">A wonderful serenity has taken possessio</h2>
+                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mo</p>
+                <button class="button">
+                    Link button
+                </button>
+            </div>
+            <div class="block__leftright-right">
+                <img src="img/IMG_0346.jpg" alt="Bergfoto">
+            </div>
+        </div>
+        <div class="block">
+            <div class="block__headline1">
+                <h1 class="block__headline1--main-con-red"><mark>|</mark> CtA - Main conversion - Red Headline</h1>
+            </div>
+            <div class="block__leftright">
+                <div class="block__leftright-left">
+                    <h2 class="block__headline2--red">A wonderful serenity has taken possessio</h2>
+                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mo</p>
+                    <button class="button">
+                        Link button
+                    </button>
+                </div>
+                <div class="block__leftright-right">
+                    <img src="img/IMG_0346.jpg" alt="Bergfoto">
+                </div>
+            </div>
+            <div class="block">
+                <div class="block__headline1">
+                    <h1 class="block__headline1--second-con"><mark>|</mark> CtA - Secondary conversion</h1>
+                </div>
+                <div class="block__leftright block__leftright--secondcon">
+                    <div class="block__leftright-right--secondcon">
+                        <h2 class="block__headline2--black">A wonderful serenity has taken possessio</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mo</p>
+                        <button class="button button--clicked">
+                            Link button
+                        </button>
+                    </div>
+                    <div class="block__leftright-left--secondcon">
+                        <img src="img/IMG_0346.jpg" alt="Bergfoto">
+                    </div>
+                </div>
+            </div>
+            <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
