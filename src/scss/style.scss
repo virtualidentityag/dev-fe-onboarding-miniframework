@@ -17,6 +17,14 @@ body {
       font-size: 300px;
     }
   }
+  h3 {
+    position: relative;
+    margin-left: 50px;
+    padding-left: 10px;
+    font-size: 20px;
+    border-left: 3px solid coral;
+    top: 200px;
+  }
 }
 // .content {
 //   position: absolute;
@@ -27,7 +35,7 @@ body {
 //   box-shadow: inset 1px 1px 11px 0px black;
 // }
 
-.aComponent {
+.imageText {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -38,40 +46,40 @@ body {
   border: 1px solid black;
   margin-bottom: 50px;
 
-  .textBox {
+  &__textBox {
     width: 30%;
     margin: auto 20px;
+  }
 
-    &__headline {
-      margin-top: 0;
-    }
+  &__headline {
+    margin-top: 0;
+  }
 
-    &__description {
-      margin: 30px 0;
-    }
+  &__description {
+    margin: 30px 0;
+  }
 
-    &__linkButton {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      background-color: black;
-      padding: 10px;
-      margin: 0 auto;
+  &__linkButton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin: 0 auto;
 
-      &--showInfo {
-        cursor: pointer;
-      }
+    &--showInfo {
+      cursor: pointer;
     }
   }
 
-  .mainImage {
+  &__mainImage {
     width: 50%;
     border-width: 100px 0;
     border-style: solid;
     border-color: black;
   }
 
-  .tooltip {
+  &__tooltip {
     display: none;
     position: relative;
     align-self: flex-end;
@@ -104,8 +112,8 @@ body {
     }
   }
 
-  &--redHeadline {
-    .textBox__headline {
+  &--coloredHeadline {
+    .imageText__headline {
       color: coral;
     }
   }
@@ -114,7 +122,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    .textBox {
+    .imageText__textBox {
       order: 2;
 
       &__linkButton {
@@ -122,7 +130,7 @@ body {
       }
     }
 
-    .mainImage {
+    .imageText__mainImage {
       order: 1;
       width: 30%;
       border: 0;
