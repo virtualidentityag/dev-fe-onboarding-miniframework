@@ -2,52 +2,61 @@ $font-stack: "Georgia";
 $primary-color: white;
 $secondary-color: lightgrey;
 $primary-fontcolor: black;
-$secondary-fontcolor: darkred;
+$secondary-fontcolor: rgb(229, 39, 78);
 
 body {
   color: $primary-fontcolor;
   background-color: $primary-color;
   font-family: $font-stack;
-  mark {
-    color: $secondary-fontcolor;
-    background-color: transparent;
-  }
 }
 img {
   max-width: 100%;
   height: auto;
 }
-.block__leftright {
+.mainConversion__content-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: $secondary-color;
   &--secondcon {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  &-right--secondcon {
-    grid-column-start: 2;
+}
+.mainConversion__right {
+  &--secondcon {
+    grid-column: 2 / span 2;
     grid-row-start: 1;
-    padding: 30% 0 30% 5%;
-  }
-  &-left--secondcon {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    padding: 10% 0 10% 30%;
-  }
-  .block__leftright-left {
-    margin: 30% 20%;
+    padding: 20% 0 20% 5%;
   }
 }
-.block__headline2 {
-  &--black {
-    color: $primary-fontcolor;
+.mainConversion__left {
+  margin-left: 20%;
+  justify-self: center;
+  align-self: center;
+  &--secondcon {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    margin: 10% 0 10% 30%;
+    justify-self: center;
+    align-self: center;
+    max-width: 70%;
   }
-  &--red {
+}
+
+.headline2 {
+  font-size: 200%;
+  font-weight: 700;
+  &--secondcon {
+    color: $primary-fontcolor;
+    font-size: 150%;
+  }
+  &--redCon {
     color: $secondary-fontcolor;
   }
 }
-.block__headline1 {
-  margin: 0 0 0 10%;
+.headline1 {
+  margin: 2% 0 2% 10%;
+  border-left: $secondary-fontcolor 3px solid;
+  padding-left: 10px;
 }
 .button {
   padding: 10px;
