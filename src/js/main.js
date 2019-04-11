@@ -27,7 +27,8 @@ if (tooltipToToggle != tooltipOpened){
     tooltipOpened.classList.remove("imageText__tooltip--show");
 }
     });
-    tooltipToToggle.classList.toggle("imageText__tooltip--show")
+    tooltipToToggle.classList.toggle("imageText__tooltip--show");
+    
   });
 });
 
