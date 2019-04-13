@@ -1,14 +1,129 @@
+$triangleSize: 50px;
+$trinagleSizeBorder: $triangleSize / 2;
+
 body {
-  background-color: pink;
+  background-color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 2000px;
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+h1 {
+  font-size: 20px;
+  border-left: 5px solid coral;
+  padding: 0 5px;
+  margin-top: 100px;
+}
+
+.callToAction {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: flex-end;
+  background-color: rgb(230, 230, 230);
+
+  .callToAction__textBox {
+    order: 1;
+    width: 30%;
+    margin: 10px auto;
+  }
+
+  .callToAction__headline {
+    font-size: 20px;
+  }
+
+  .callToAction__text {
+    font-size: 16px;
+  }
+
+  .callToAction__togglebutton {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .callToAction__image {
+    order: 2;
+    width: 50%;
+  }
+
+  .callToAction__tooltip {
+    position: relative;
+    order: 3;
+    width: 100%;
+    background-color: #4a656e;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px 0;
+    opacity: 0.0;
+    transition: all 2s ease-in;
+  }
+
+  .callToAction__tooltip--show {
+    display: flex;
+    opacity: 1.0;
+  }
+
+  .callToAction__tooltip::before {
+    position: absolute;
+    top: -$triangleSize;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: $trinagleSizeBorder solid transparent;
+    border-right: $trinagleSizeBorder solid transparent;
+    border-bottom: $triangleSize solid #4a656e;
+  }
+
+  .callToAction__tooltipHeadline {
+    font-size: 20px;
+    width: 30%;
+    margin: 0;
+  }
+
+  .callToAction__tooltipText {
+    font-size: 16px;
+    width: 30%;
+    margin: 0;
+  }
+
+  &--redHeadline {
+    .callToAction__headline {
+      color: coral;
+    }
+
+    .callToAction__togglebutton {
+      color: coral;
+    }
+
+    .callToAction__tooltip p {
+      color: coral;
+    }
+  }
+
+  &--secondaryConversion {
+    justify-content: space-around;
+    align-items: center;
+
+    .callToAction__textBox {
+      order: 2;
+      margin: 10px 0;
+    }
+
+    .callToAction__image {
+      order: 1;
+      width: 30%;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+  }
 }
