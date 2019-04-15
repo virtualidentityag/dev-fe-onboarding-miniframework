@@ -1,6 +1,7 @@
 $triangleSize: 50px;
 $trinagleSizeBorder: $triangleSize / 2;
 
+
 body {
   background-color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -56,44 +57,60 @@ h1 {
     position: relative;
     order: 3;
     width: 100%;
-    background-color: #4a656e;
+    max-height: 0;
+    background-color: rgba(74, 101, 110, 0.8);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     align-content: center;
-    padding: 10px 0;
-    opacity: 0.0;
-    transition: all 2s ease-in;
+    padding: 0;
+    // opacity: 0.0;
+    transition: all 0.5s ease-in;
+    --triangleSize:0px; //$triangleSize;
+    --triangleSizeBorder: 0px;// $trinagleSizeBorder;
+  }
+
+  .ghost {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 30%;
   }
 
   .callToAction__tooltip--show {
-    display: flex;
-    opacity: 1.0;
+    // display: flex;
+    // opacity: 1.0;
+    height: auto;
+    max-height: 300px;
+    padding: 10px 0;
+    --triangleSize:100px; //$triangleSize;
+    --triangleSizeBorder: 50px;// $trinagleSizeBorder;
   }
 
   .callToAction__tooltip::before {
+    transition: all 0.5s ease-in;
     position: absolute;
-    top: -$triangleSize;
+    top: calc(var(--triangleSize) * -1);
     content: '';
     width: 0;
     height: 0;
-    border-left: $trinagleSizeBorder solid transparent;
-    border-right: $trinagleSizeBorder solid transparent;
-    border-bottom: $triangleSize solid #4a656e;
+    border-left: var(--triangleSizeBorder) solid transparent;
+    border-right: var(--triangleSizeBorder) solid transparent;
+    border-bottom: var(--triangleSize) solid rgba(74, 101, 110, 0.8);
+    z-index: 1000;
   }
 
   .callToAction__tooltipHeadline {
+    display: inline-block;
     font-size: 20px;
-    width: 30%;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .callToAction__tooltipText {
+    display: inline-block;
     font-size: 16px;
-    width: 30%;
-    margin: 0;
+    margin: 0 auto;
   }
 
   &--redHeadline {
@@ -105,8 +122,12 @@ h1 {
       color: coral;
     }
 
-    .callToAction__tooltip p {
-      color: coral;
+    .callToAction__tooltip  {
+      background-color: rgba(255, 127, 80, 0.8);
+    }
+
+    .callToAction__tooltip::before {
+      border-bottom: var(--triangleSize) solid rgba(255, 127, 80, 0.8);
     }
   }
 
