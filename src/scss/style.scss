@@ -5,6 +5,7 @@ $trinagleSizeBorder: $triangleSize / 2;
 body {
   background-color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   height: 2000px;
 }
 
@@ -20,15 +21,19 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content:flex-end;
   align-items: center;
   align-content: flex-end;
   background-color: rgb(230, 230, 230);
 
   .callToAction__textBox {
+    box-sizing: border-box;
     order: 1;
-    width: 30%;
-    margin: 10px auto;
+    width: 40%;
+    padding: 2.5%;
+    height: auto;
+    margin: 0 auto;
+    background-color: rgb(230, 230, 230);
   }
 
   .callToAction__headline {
@@ -48,10 +53,19 @@ h1 {
     cursor: pointer;
   }
 
+
   .callToAction__image {
     order: 2;
     width: 50%;
+    border-radius: 0;
+    transition: all 0.5s ease-in;
+
+    &--round {
+      border-radius: 50px 0 0 50px;
+    }
+
   }
+
 
   .callToAction__tooltip {
     position: relative;
@@ -66,7 +80,6 @@ h1 {
     align-items: center;
     align-content: center;
     padding: 0;
-    // opacity: 0.0;
     transition: all 0.5s ease-in;
     --triangleSize:0px; //$triangleSize;
     --triangleSizeBorder: 0px;// $trinagleSizeBorder;
@@ -75,14 +88,14 @@ h1 {
   .ghost {
     overflow: hidden;
     margin: 0 auto;
-    width: 30%;
+    width: 60%;
   }
 
   .callToAction__tooltip--show {
     // display: flex;
     // opacity: 1.0;
     height: auto;
-    max-height: 300px;
+    max-height: 400px;
     padding: 10px 0;
     --triangleSize:100px; //$triangleSize;
     --triangleSizeBorder: 50px;// $trinagleSizeBorder;
@@ -114,6 +127,8 @@ h1 {
   }
 
   &--redHeadline {
+    align-items: center;
+
     .callToAction__headline {
       color: coral;
     }
@@ -146,5 +161,44 @@ h1 {
       border-top: 20px solid transparent;
       border-bottom: 20px solid transparent;
     }
+
+    .callToAction__image--round {
+      border-radius: 0;
+    }
+  }
+
+  &--thirdConversion {
+    align-items: stretch;
+    background-color: red;
+
+  .callToAction__textBox {
+    width: 50%;
+    border-radius: 0 0 50px 0;
+  }
+  .callToAction__backgroundImage {
+    content: '';
+    order: 1;
+    display: block;
+    width: 50%;
+    background-color: black;
+    background-size: cover;
+    background-image: url(../assets/ashthorp2.jpg);
+    border-radius: 0 0 0 0;
+
+    &--round {
+      border-radius: 0 0 0 50px;
+    }
+  }
+
+  .callToAction__backgroundImage--round {
+    border-radius: 0 0 0 50px;
+  }
+
+  .callToAction__tooltip {
+    background-color: transparent;
+  }
+  .callToAction__tooltip::before {
+    display: none;
+  }
   }
 }
