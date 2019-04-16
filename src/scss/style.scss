@@ -6,7 +6,7 @@ body {
   background-color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-family: 'Montserrat', sans-serif;
-  height: 2000px;
+  height: 2500px;
 }
 
 h1 {
@@ -21,12 +21,26 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
   align-content: flex-end;
   background-color: rgb(230, 230, 230);
 
-  .callToAction__textBox {
+  &--redHeadline {
+    align-items: center;
+  }
+
+  &--secondaryConversion {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &--thirdConversion {
+    align-items: stretch;
+    background-color: rgba(74, 101, 110, 0.8);
+  } 
+
+  &__textBox {
     box-sizing: border-box;
     order: 1;
     width: 40%;
@@ -34,40 +48,96 @@ h1 {
     height: auto;
     margin: 0 auto;
     background-color: rgb(230, 230, 230);
+
+    .callToAction--secondaryConversion & {
+      order: 2;
+      margin: 10px 0;
+    }
+
+    .callToAction--thirdConversion & {
+      width: 50%;
+      border-radius: 0 0 0 0;
+      transition: all 0.5s ease;
+    }
+    .callToAction--thirdConversion.callToAction--tooltipOpen & {
+      border-radius: 0 0 100px 0;
+    }
   }
 
-  .callToAction__headline {
+  &__headline {
     font-size: 20px;
+
+    .callToAction--redHeadline & {
+      color: coral;
+    }
   }
 
-  .callToAction__text {
+  &__text {
     font-size: 16px;
   }
 
-  .callToAction__togglebutton {
+  &__togglebutton {
     background-color: black;
     color: white;
     font-size: 16px;
     padding: 5px;
     text-decoration: none;
     cursor: pointer;
+
+    .callToAction--redHeadline & {
+      color: coral;
+    }
   }
 
 
-  .callToAction__image {
+  &__image {
     order: 2;
     width: 50%;
     border-radius: 0;
     transition: all 0.5s ease-in;
 
-    &--round {
+    // &--round {
+    //   border-radius: 50px 0 0 50px;
+    // }
+
+    .callToAction--secondaryConversion & {
+      order: 1;
+      width: 30%;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+    .callToAction--tooltipOpen & {
       border-radius: 50px 0 0 50px;
+    }
+
+    .callToAction--secondaryConversion.callToAction--tooltipOpen & {
+      border-radius: 0;
     }
 
   }
 
+  &__backgroundImage {
+    content: '';
+    order: 1;
+    display: block;
+    width: 50%;
+    background-color: black;
+    background-size: cover;
+    background-image: url(../assets/ashthorp2.jpg);
+    border-radius: 0 0 0 0;
 
-  .callToAction__tooltip {
+    .callToAction--thirdConversion & {
+      border-radius: 0;
+      transition: all 0.5s ease; 
+    }
+
+    .callToAction--tooltipOpen & {
+      border-radius: 0 0 0 100px;
+    }
+  }
+
+
+  &__tooltip {
     position: relative;
     order: 3;
     width: 100%;
@@ -81,27 +151,44 @@ h1 {
     align-content: center;
     padding: 0;
     transition: all 0.5s ease-in;
-    --triangleSize:0px; //$triangleSize;
-    --triangleSizeBorder: 0px;// $trinagleSizeBorder;
+    --triangleSize: 0px; //$triangleSize;
+    --triangleSizeBorder: 0px; // $trinagleSizeBorder;
+
+    .callToAction--redHeadline & {
+      background-color: rgba(255, 127, 80, 0.8);
+    }
+    .callToAction--thirdConversion & {
+      background: none;
+    }
+
+    .callToAction--tooltipOpen & {
+       // display: flex;
+    // opacity: 1.0;
+    height: auto;
+    max-height: 400px;
+    padding: 10px 0;
+    --triangleSize: 100px; //$triangleSize;
+    --triangleSizeBorder: 50px; // $trinagleSizeBorder;
+    }
   }
 
-  .ghost {
+  &__ghost {
     overflow: hidden;
     margin: 0 auto;
     width: 60%;
   }
 
-  .callToAction__tooltip--show {
-    // display: flex;
-    // opacity: 1.0;
-    height: auto;
-    max-height: 400px;
-    padding: 10px 0;
-    --triangleSize:100px; //$triangleSize;
-    --triangleSizeBorder: 50px;// $trinagleSizeBorder;
-  }
+  // &__tooltip--show {
+  //   // display: flex;
+  //   // opacity: 1.0;
+  //   height: auto;
+  //   max-height: 400px;
+  //   padding: 10px 0;
+  //   --triangleSize: 100px; //$triangleSize;
+  //   --triangleSizeBorder: 50px; // $trinagleSizeBorder;
+  // }
 
-  .callToAction__tooltip::before {
+  &__tooltip::before {
     transition: all 0.5s ease-in;
     position: absolute;
     top: calc(var(--triangleSize) * -1);
@@ -112,93 +199,25 @@ h1 {
     border-right: var(--triangleSizeBorder) solid transparent;
     border-bottom: var(--triangleSize) solid rgba(74, 101, 110, 0.8);
     z-index: 1000;
+
+    .callToAction--redHeadline & {
+      border-bottom: var(--triangleSize) solid rgba(255, 127, 80, 0.8);
+    }
+
+    .callToAction--thirdConversion & {
+      display: none;
+    }
   }
 
-  .callToAction__tooltipHeadline {
+  &__tooltipHeadline {
     display: inline-block;
     font-size: 20px;
     margin: 0 auto;
   }
 
-  .callToAction__tooltipText {
+  &__tooltipText {
     display: inline-block;
     font-size: 16px;
     margin: 0 auto;
-  }
-
-  &--redHeadline {
-    align-items: center;
-
-    .callToAction__headline {
-      color: coral;
-    }
-
-    .callToAction__togglebutton {
-      color: coral;
-    }
-
-    .callToAction__tooltip  {
-      background-color: rgba(255, 127, 80, 0.8);
-    }
-
-    .callToAction__tooltip::before {
-      border-bottom: var(--triangleSize) solid rgba(255, 127, 80, 0.8);
-    }
-  }
-
-  &--secondaryConversion {
-    justify-content: space-around;
-    align-items: center;
-
-    .callToAction__textBox {
-      order: 2;
-      margin: 10px 0;
-    }
-
-    .callToAction__image {
-      order: 1;
-      width: 30%;
-      border-top: 20px solid transparent;
-      border-bottom: 20px solid transparent;
-    }
-
-    .callToAction__image--round {
-      border-radius: 0;
-    }
-  }
-
-  &--thirdConversion {
-    align-items: stretch;
-    background-color: red;
-
-  .callToAction__textBox {
-    width: 50%;
-    border-radius: 0 0 50px 0;
-  }
-  .callToAction__backgroundImage {
-    content: '';
-    order: 1;
-    display: block;
-    width: 50%;
-    background-color: black;
-    background-size: cover;
-    background-image: url(../assets/ashthorp2.jpg);
-    border-radius: 0 0 0 0;
-
-    &--round {
-      border-radius: 0 0 0 50px;
-    }
-  }
-
-  .callToAction__backgroundImage--round {
-    border-radius: 0 0 0 50px;
-  }
-
-  .callToAction__tooltip {
-    background-color: transparent;
-  }
-  .callToAction__tooltip::before {
-    display: none;
-  }
   }
 }
