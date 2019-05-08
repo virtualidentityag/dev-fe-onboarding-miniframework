@@ -18,9 +18,6 @@ toggleButtons.forEach(function (element) {
 
 allComponents.forEach(function (element) {
     element.addEventListener('closeTooltipEvent', function (event) {
-        console.log(event.detail.origin == element);
-        console.log(event);
-        console.log(event.detail.clicked);
         if (event.detail.origin == element) {
             element.classList.toggle('callToAction--tooltipOpen');
         } else {

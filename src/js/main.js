@@ -20,18 +20,3 @@ toggleButtons.forEach((element) => {
     callToActionClicked.classList.toggle('callToAction--tooltipOpen');
   });
 });
-
-
-const smallValls = [1,12,15,6,43].map(function (val) {
-  if (val < 10) {
-    val = 0;
-  } else {
-    val = 99;
-  }
-  return val;
-});
-console.table(smallValls);
-
-const rndValls = new Array(50).fill(0).map(i => i + Math.random());
-console.log(rndValls);
-
