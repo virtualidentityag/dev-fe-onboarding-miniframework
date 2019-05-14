@@ -6,8 +6,7 @@ toggleButtons.forEach(function (element) {
         var componentClick = event.target.parentNode.parentNode;
         var tellOthersToClose = new CustomEvent('closeTooltipEvent', {
             detail: {
-                origin: componentClick,
-                clicked: true
+                origin: componentClick
             }
         });
         allComponents.forEach(component => {
@@ -25,12 +24,3 @@ allComponents.forEach(function (element) {
         }
     })
 })
-
-// function closeAll () {
-// var openTooltip = [...document.querySelectorAll('.callToAction--tooltipOpen')];
-// openTooltip.forEach( function (element) {
-//     element.classList.remove('callToAction--tooltipOpen');
-// });
-// console.log(openTooltip);
-
-// }
