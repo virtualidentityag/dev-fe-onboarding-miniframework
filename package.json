@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/virtualidentityag/dev-fe-onboarding-miniframework#readme",
   "devDependencies": {
-    "gulp": "^4.0.1"
+    "gulp": "^4.0.2"
   },
   "dependencies": {
     "es6-scroll-to": "^1.1.2",
