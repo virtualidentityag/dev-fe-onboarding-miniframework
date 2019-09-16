@@ -24,28 +24,31 @@ gulp.task('html', function () {
   gulp.src('./src/*.html').pipe(gulp.dest('./srv/'));
 })
 
-gulp.task('connect:open', function() {
+gulp.task('connect:open', function(done) {
   const opn = require('opn');
-  return opn('http://localhost:1337');
+  opn('http://localhost:1337');
+  done();
 });
 
-gulp.task('connect', function() {
+gulp.task('connect', function(done) {
   connect.server({
     root: 'srv',
     port: 1337,
     livereload: true
   });
+  done();
 });
 
 gulp.task('livereload', function() {
   gulp.src('./srv/**/*').pipe(connect.reload());
 });
 
-gulp.task('watch', function() {
-  gulp.watch('./src/*.html', ['html']);
-  gulp.watch('./src/js/*.js', ['js']);
-  gulp.watch('./src/scss/*.scss', ['sass']);
-  gulp.watch('./src/**/*', ['livereload']);
+gulp.task('watch', function(done) {
+  gulp.watch('./src/*.html', gulp.parallel('html'))
+    gulp.watch('./src/js/*.js', gulp.parallel('js'))
+    gulp.watch('./src/scss/*.scss', gulp.parallel('sass'))
+    gulp.watch('./src/**/*', gulp.parallel('livereload'))
+    done()
 });
 
-gulp.task('default', ['connect', 'connect:open', 'watch', 'sass', 'js', 'html']);
+gulp.task('default', gulp.parallel('connect', 'connect:open', 'watch', 'js', 'html'));
