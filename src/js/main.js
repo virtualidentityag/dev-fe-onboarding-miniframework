@@ -1,6 +1,29 @@
-import {animatedScrollTo} from './es6-scroll-to.js';
 
-document.querySelector('.title').innerHTML = 'Great success!'
-document.querySelector('.text').innerHTML = 'Javascript is working!'
 
-animatedScrollTo(500);
+function contactToggle1() {
+    let x = document.getElementById("contact1");
+    if (x.className === "contact") {
+      x.className += " contact--hidden";
+    } else {
+      x.className = "contact";
+    }
+    console.log('hallo');
+  }
+  function contactToggle2() {
+    let x = document.getElementById("contact2");
+    if (x.className === "contact") {
+      x.className += " contact--hidden";
+    } else {
+      x.className = "contact";
+    }
+    console.log('hallo');
+  }
+  function contactToggle3() {
+    let x = document.getElementById("contact3");
+    if (x.className === "contact") {
+      x.className += " contact--hidden";
+    } else {
+      x.className = "contact";
+    }
+    console.log('hallo');
+  }

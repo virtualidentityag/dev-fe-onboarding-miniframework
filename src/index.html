@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <title>title</title>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script src="js/main.js"></script>
   </head>
   <body>
-      <h2 class="headline">CtA - Main conversion</h2>
+    <h2 class="headline">CtA - Main conversion</h2>
     <div class="main-conversion">
       <div>
         <h2 class="main-conversion__headline">
@@ -16,9 +17,12 @@
           A wonderful serenity has taken possession of my entire soul, like
           these sweet mo
         </p>
-        <a class="main-conversion__btn" href="">Link Button</a>
+        <a class="main-conversion__btn" onclick="contactToggle1()" href="javascript:void(0);">Link Button</a>
       </div>
       <img class="main-conversion__img" src="mainConversion.png" />
+    </div>
+    <div id="contact1" class="contact contact--hidden">
+      <p class="contact__headline">Contact us</p>
     </div>
     <h2 class="headline">CtA - Main conversion - Red Headline</h2>
     <div class="main-conversion--red-headline">
@@ -30,10 +34,16 @@
           A wonderful serenity has taken possession of my entire soul, like
           these sweet mo
         </p>
-        <a class="main-conversion--red-headline__btn" href="">Link Button</a>
+        <a class="main-conversion--red-headline__btn" onclick="contactToggle2()" href="javascript:void(0);">Link Button</a>
       </div>
-      <img class="main-conversion--red-headline__img" src="mainConversion.png" />
+      <img
+        class="main-conversion--red-headline__img"
+        src="mainConversion.png"
+      />
     </div>
+    <div id="contact2" class="contact contact--hidden">
+        <p class="contact__headline">Contact us</p>
+      </div>
     <h2 class="headline">CtA - Secondary conversion</h2>
     <div class="main-conversion--secondary">
       <div>
@@ -44,10 +54,14 @@
           A wonderful serenity has taken possession of my entire soul, like
           these sweet mo
         </p>
-        <a class="main-conversion--secondary__btn" href="">Link Button</a>
+        <a class="main-conversion--secondary__btn" onclick="contactToggle3()" href="javascript:void(0);">
+          Link Button
+        </a>
       </div>
       <img class="main-conversion--secondary__img" src="mainConversion.png" />
     </div>
-    <script type="module" src="js/main.js"></script>
+    <div id="contact3" class="contact contact--hidden">
+        <p class="contact__headline">Contact us</p>
+      </div>
   </body>
 </html>
