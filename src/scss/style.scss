@@ -1,14 +1,112 @@
-body {
-  background-color: pink;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 2000px;
+//color variables
+$background-gray: #ecede9;
+$red: #f08280;
+@mixin boxshadow-red-line {
+  -webkit-box-shadow: -4px 0px 0px 0px red;
+  -moz-box-shadow: -4px 0px 0px 0px red;
+  box-shadow: -4px 0px 0px 0px red;
+  padding-left: 5px;
+}
+.headline {
+  margin-left: 10vw;
+  @include boxshadow-red-line();
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+
+.main-conversion {
+  background-color: $background-gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10vw;
+  
+  div {
+    padding-right: 5vw;
+  }
+  @at-root #{&}__img {
+    width: 50%;
+    height: auto;
+  }
+  @at-root #{&}__headline {
+    margin-bottom: 10px;
+  }
+  @at-root #{&}__btn {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    padding: 10px 15px;
+  }
+  @at-root #{&}__text {
+    font-size: 0.8em;
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+
+
+  @at-root #{&}--red-headline {
+    background-color: $background-gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10vw;
+    div {
+      padding-right: 5vw;
+    }
+    @at-root #{&}__img {
+      width: 50%;
+      height: auto;
+    }
+    @at-root #{&}__headline {
+      margin-bottom: 10px;
+      color: $red;
+    }
+    @at-root #{&}__btn {
+      text-decoration: none;
+      background-color: black;
+      color: white;
+      font-size: 0.8em;
+      padding: 10px 15px;
+    }
+    @at-root #{&}__text {
+      font-size: 0.8em;
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+  }
+
+
+  @at-root #{&}--secondary {
+    background-color: $background-gray;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10vw;
+    div {
+      padding-right: 5vw;
+      order: 2;
+    }
+    @at-root #{&}__img {
+      order: 1;
+      width: 50%;
+      height: auto;
+      margin: 75px 0;
+      padding-right: 20px;
+    }
+    @at-root #{&}__headline {
+      margin-bottom: 10px;
+    }
+    @at-root #{&}__btn {
+      text-decoration: none;
+      background-color: $red;
+      color: white;
+      font-size: 0.8em;
+      padding: 10px 15px;
+    }
+    @at-root #{&}__text {
+      font-size: 0.8em;
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+  }
 }
