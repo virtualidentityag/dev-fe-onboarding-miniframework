@@ -1,51 +1,63 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 const connect = require('gulp-connect');
 var rename = require('gulp-rename');
 
-gulp.task('sass', function() {
+function styles(done) {
   gulp
     .src(['./src/scss/*.scss'])
     .pipe(
       sass({
         includePaths: ['./src/scss'],
         outputStyle: 'expanded'
-      })
+      }).on('error', sass.logError)
     )
-    .pipe(gulp.dest('./srv/ssc'));
-});
+    .pipe(gulp.dest('./srv/css'));
+    done()
+};
 
-gulp.task('js', function(){
+function js(done){
   gulp.src(['./src/js/*.js']).pipe(gulp.dest('./srv/js/'));
   gulp.src('./node_modules/es6-scroll-to/lib/index.js').pipe(rename('es6-scroll-to.js')).pipe(gulp.dest('./srv/js/'));
-});
+  done()
+};
 
-gulp.task('html', function () {
+function html(done) {
   gulp.src('./src/*.html').pipe(gulp.dest('./srv/'));
-})
+  done()
+};
 
-gulp.task('connect:open', function() {
-  const opn = require('opn');
-  return opn('http://localhost:1337');
-});
+function connectOpen() {
+  const open = require('open');
+  return open('http://localhost:1337');
+};
 
-gulp.task('connect', function() {
+function connection() {
   connect.server({
     root: 'srv',
     port: 1337,
     livereload: true
   });
-});
+};
 
-gulp.task('livereload', function() {
+function livereload(done) {
   gulp.src('./srv/**/*').pipe(connect.reload());
-});
+  done()
+};
+  
+function watch() {
+  gulp.watch('./src/*.html', gulp.series(html));
+  gulp.watch('./src/js/*.js', gulp.series(js));
+  gulp.watch('./src/scss/*.scss', gulp.series(styles));
+  gulp.watch('./src/**/*', gulp.series(livereload));
+};
 
-gulp.task('watch', function() {
-  gulp.watch('./src/*.html', ['html']);
-  gulp.watch('./src/js/*.js', ['js']);
-  gulp.watch('./src/scss/*.scss', ['sass']);
-  gulp.watch('./src/**/*', ['livereload']);
-});
-
-gulp.task('default', ['connect', 'connect:open', 'watch', 'sass', 'js', 'html']);
+exports.watch=watch;
+exports.styles=styles;
+exports.connection=connection;
+exports.connectOpen=connectOpen;
+exports.livereload=livereload;
+exports.js=js;
+exports.html=html;
+exports.default=gulp.parallel(styles, js, html, connection, connectOpen, watch);
