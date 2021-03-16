@@ -28,6 +28,11 @@ function html(done) {
   done()
 };
 
+function assets(done) {
+  gulp.src('./src/img/*').pipe(gulp.dest('./srv/img'));
+  done()
+};
+
 function connectOpen() {
   const open = require('open');
   return open('http://localhost:1337');
@@ -51,6 +56,7 @@ function watch() {
   gulp.watch('./src/js/*.js', gulp.series(js));
   gulp.watch('./src/scss/*.scss', gulp.series(styles));
   gulp.watch('./src/**/*', gulp.series(livereload));
+  gulp.watch('./src/img/*', gulp.series(assets));
 };
 
 exports.watch=watch;
@@ -60,4 +66,5 @@ exports.connectOpen=connectOpen;
 exports.livereload=livereload;
 exports.js=js;
 exports.html=html;
-exports.default=gulp.parallel(styles, js, html, connection, connectOpen, watch);
+exports.assets=assets;
+exports.default=gulp.parallel(styles, js, html, assets, connection, connectOpen, watch);

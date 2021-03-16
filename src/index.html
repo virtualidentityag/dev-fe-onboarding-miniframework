@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>title</title>
-  <link rel="stylesheet" href="css/style.ss" type="text/css">
-  </head>
-  <body>
-      <div class="error" style="color:pink">
+    <title>Fundamentals II</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="block">
+        <h2 class="block__headline">CtA - Main convention</h2>
+        <div class="contentBox">
+            <div class="contentBox__text-box">
+                <h3 class="text-box__headline">A wonderful serenity has taken possessio</h3>
+                <p class="text-box__text">A wonderful serenity has taken possessio of my entire soul, like these sweet mo</p>
+                <button class="text-box__button" type="button">Link button</button>
+            </div>
+            <img class="contentBox__img" src="img/01_img.jpg" alt="Mann in den Bergen" />
+        </div>
+    </div>
+
+    <div class="block">
+        <h2 class="block__headline">CtA - Main convention - Red Headline</h2>
+        <div class="contentBox">
+            <div class="contentBox__text-box">
+                <h3 class="text-box__headline text-box__headline--redHeadline">A wonderful serenity has taken possessio</h3>
+                <p class="text-box__text">A wonderful serenity has taken possessio of my entire soul, like these sweet mo</p>
+                <button class="text-box__button" type="button">Link button</button>
+            </div>
+            <img class="contentBox__img" src="img/01_img.jpg" alt="Mann in den Bergen" />
+        </div>
+    </div>
+
+    <div class="block">
+        <h2 class="block__headline">CtA - Secondary conversion</h2>
+        <div class="contentBox contentBox--secondaryConversion">
+            <div class="contentBox__text-box  contentBox__text-box--secondaryConversion">
+                <h3 class="text-box__headline text-box__headline--secondaryConversion">A wonderful serenity has taken possessio</h3>
+                <p class="text-box__text">A wonderful serenity has taken possessio of my entire soul, like these sweet mo</p>
+                <button class="text-box__button text-box__button--secondaryConversion" type="button">Link button</button>
+            </div>
+            <img class="contentBox__img contentBox__img--secondaryConversion" src="img/01_img.jpg" alt="Mann in den Bergen" />
+        </div>
+    </div>
+    <!-- <div class="error" style="color:pink">
           Looks like the styleguide is not being implemented correctly..
       </div>
       <div class="content">
@@ -21,7 +58,8 @@
       </div>
       <div class="success" style="color:white; position:absolute; top:580px">
             Woohoo, CSS is working!
-        </div>
-      <script type="module" src="js/mayn.js"></script>
-  </body>
-</html> 
+        </div> -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
