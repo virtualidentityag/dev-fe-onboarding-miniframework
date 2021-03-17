@@ -13,6 +13,8 @@
 //   box-shadow: inset 1px 1px 11px 0px black;
 // }
 
+$specialColor: salmon;
+
 .block__headline {
   padding-left: 15%;
   font-size: 33px;
@@ -58,7 +60,7 @@
     }
 
     .text-box__button--secondaryConversion {
-      background-color: salmon;
+      background-color: $specialColor;
     }
   }
   .contentBox__text-box--secondaryConversion {
@@ -77,7 +79,7 @@
 }
 
 .text-box__headline--redHeadline {
-  color: salmon;
+  color: $specialColor;
 }
 
 .contentBox--secondaryConversion {
